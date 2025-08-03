@@ -1,7 +1,13 @@
 package main
 
-import "github.com/sawada-naoya/ransomware-simulator/ui"
+import (
+	"fyne.io/fyne/v2/app"
+	"github.com/sawada-naoya/ransomware-simulator/ui"
+)
+
 
 func main() {
-	ui.LaunchUI()
+    a := app.New()
+    w := ui.CreateMainWindow(a)
+    w.ShowAndRun()
 }

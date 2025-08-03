@@ -1,16 +1,23 @@
 package ui
 
 import (
-	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
 
-func LaunchUI() {
-	a := app.New()
-	w := a.NewWindow("⚠️ 警告 ⚠️")
-	w.SetContent(container.NewVBox(
-		widget.NewLabel("あなたのファイルはロックされました"),
-	))
-	w.ShowAndRun()
+func CreateMainWindow(a fyne.App) fyne.Window {
+    w := a.NewWindow("Ransomware Simulator")
+
+    label := widget.NewLabel("あなたのファイルはロックされました")
+    btn := widget.NewButton("支払い", func() {
+        ShowPaymentDialog(w)
+    })
+
+    w.SetContent(container.NewVBox(
+        label,
+        btn,
+    ))
+
+    return w
 }
