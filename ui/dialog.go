@@ -8,5 +8,5 @@ import (
 
 
 func ShowPaymentDialog(parent fyne.Window) {
-    dialog.ShowCustom("支払い完了", "閉じる", widget.NewLabel("復号キーが送信されました（という体験です）"), parent)
+    dialog.ShowCustom("支払い完了", "閉じる", widget.NewLabel("復号キーが送信されました"), parent)
 }
