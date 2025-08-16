@@ -18,3 +18,11 @@ func FakeDecryptFile(targetDir string) error {
 		return nil
 	})
 }
+
+func FakeDecryptPath(path string) error {
+	if strings.HasSuffix(path, ".locked") {
+		originalName := strings.TrimSuffix(path, ".locked")
+		return os.Rename(path, originalName)
+	}
+	return nil
+}

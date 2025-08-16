@@ -24,3 +24,13 @@ func FakeEncryptFile(targetDir string) error {
 		return nil
 	})
 }
+
+func FakeEncryptPath(path string) error {
+	ext := filepath.Ext(path)
+	switch ext {
+		case ".txt", ".csv", ".docx":
+			return os.Rename(path, path + ".locked")
+		default:
+			return nil
+	}
+}
